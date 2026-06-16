@@ -1,0 +1,554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --green: #4CAF50;
+    --black: #111;
+    --dark: #1d1d1d;
+    --white: #fff;
+}
+
+body {
+    background: var(--black);
+    color: white;
+    padding-top: 80px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000;
+    z-index: 999;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 55px;
+}
+
+.logo h2 {
+    color: var(--green);
+    margin-bottom: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--green);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url("images/stadium.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 0 20px;
+}
+
+.hero img {
+    width: 220px;
+}
+
+.hero h1 {
+    margin-top: 20px;
+    font-size: 60px;
+    color: var(--green);
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 800px;
+    line-height: 1.6;
+    background: transparent;
+    padding: 0;
+}
+
+section {
+    padding: 80px 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--green);
+    font-size: 32px;
+}
+
+#about {
+    background: var(--dark);
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+#about p {
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    display: block;
+}
+
+#about ul {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px 25px 25px 40px;
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+#about ul li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    list-style-type: disc;
+}
+
+#about ul li:last-child {
+    margin-bottom: 0;
+}
+
+.slider {
+    width: 90%;
+    height: 550px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.slider:hover {
+    transform: scale(1.02);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.player-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.player {
+    background: var(--dark);
+    border: 2px solid var(--green);
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.2);
+}
+
+.player img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.player h3 {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.player p {
+    background: transparent;
+    padding: 0;
+    margin: 5px 0;
+    color: #aaa;
+}
+
+.player span {
+    display: inline-block;
+    margin: 10px 0 20px 0;
+    background: var(--green);
+    color: black;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.staff-card {
+    background: var(--dark);
+    border: 2px solid var(--green);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.staff-card:hover {
+    transform: translateY(-10px);
+}
+
+.staff-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.staff-card h3 {
+    font-size: 18px;
+    color: var(--green);
+}
+
+.staff-card p {
+    background: transparent;
+    padding: 5px 0 0 0;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: var(--green);
+    color: black;
+    padding: 15px;
+    font-weight: bold;
+}
+
+td {
+    background: #222;
+    padding: 12px 15px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.champions-league td:first-child { 
+    background-color: #1a66ff !important;
+    color: white; 
+    font-weight: bold; 
+}
+
+.conference-league td:first-child { 
+    background-color: #800040 !important; 
+    color: white; 
+    font-weight: bold; 
+}
+
+.relegation-playoff td:first-child { 
+    background-color: #740000 !important; 
+    color: white; 
+    font-weight: bold; 
+}
+
+.relegation-direct td:first-child { 
+    background-color: #ff3333 !important; 
+    color: white; 
+    font-weight: bold; 
+}
+
+.table-legend {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #fff;
+    background: var(--dark);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.box {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.cl-box { background-color: #1a66ff; }
+.conf-box { background-color: #800040; }
+.playoff-box { background-color: #740000; }
+.direct-box { background-color: #ff3333; }
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #000;
+    color: var(--green);
+    margin-top: 40px;
+}
+
+#contact
+{
+    background: var(--dark);
+    max-width: 1100px;
+    margin: 40px auto;
+    border-radius: 15px;
+    padding: 40px;
+    border: 1px solid #222;
+}
+
+.contact-container
+{
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+}
+
+.contact-info, .contact-form
+{
+    flex: 1;
+}
+
+.contact-info h3, .contact-form h3
+{
+    color: var(--green);
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.contact-info p
+{
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.contact-form form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea
+{
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus
+{
+    border-color: var(--green);
+}
+
+.contact-form button
+{
+    background: var(--green);
+    color: black;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover
+{
+    background: #3e8e41;
+    transform: translateY(-2px);
+}
+
+@media(max-width:768px){
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        z-index: 1000;
+    }
+
+    nav {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    nav.active {
+        max-height: 400px;
+        border-bottom: 2px solid var(--green);
+    }
+
+    nav a {
+        margin: 15px 0;
+        display: block;
+        font-size: 18px;
+    }
+
+    .menu-toggle.open .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--green);
+    }
+    .menu-toggle.open .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.open .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--green);
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+    
+    .hero p {
+        font-size: 15px;
+    }
+
+    .slider {
+        height: 280px;
+    }
+
+    section {
+        padding: 50px 15px;
+    }
+
+    #about {
+        padding: 20px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .contact-container
+    {
+        flex-direction: column !important;
+        gap: 40px;
+    }
+
+    #contact
+    {
+        padding: 30px 20px;
+        margin: 20px 10px;
+    }
+
+    table 
+    {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #about
+    {
+        padding: 20px 15px;
+        margin: 20px 10px;
+    }
+
+    #about p
+    {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+
+    #about ul
+    {
+        padding: 15px 15px 15px 25px;
+        margin-bottom: 15px;
+    }
+
+    #about ul li
+    {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+}
